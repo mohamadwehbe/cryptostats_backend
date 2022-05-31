@@ -1,8 +1,8 @@
-import { Task } from 'src/entities/task.entity';
-import { User } from 'src/entities/user.entity';
-import { CreateTaskDto } from 'src/tasks/dto/create-task.dto';
-import { GetTasksFilterDto } from 'src/tasks/dto/get-tasks-filter.dto';
-import { TaskStatus } from 'src/tasks/task-status.enum';
+import { Task } from '../entities/task.entity';
+import { User } from '../entities/user.entity';
+import { CreateTaskDto } from '../tasks/dto/create-task.dto';
+import { GetTasksFilterDto } from '../tasks/dto/get-tasks-filter.dto';
+import { TaskStatus } from '../tasks/task-status.enum';
 import { EntityRepository, Repository } from 'typeorm';
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 

@@ -12,9 +12,9 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth } from '@nestjs/swagger';
-import { GetUser } from 'src/auth/get-user.decorator';
-import { Task } from 'src/entities/task.entity';
-import { User } from 'src/entities/user.entity';
+import { GetUser } from '../auth/get-user.decorator';
+import { Task } from '../entities/task.entity';
+import { User } from '../entities/user.entity';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDto } from './dto/update-task.dto';
