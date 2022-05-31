@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class createNewDb1653917725117 implements MigrationInterface {
-    name = 'createNewDb1653917725117'
+export class createNewSetupUserTask1653992643455 implements MigrationInterface {
+    name = 'createNewSetupUserTask1653992643455'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "Tasks" ("id" uniqueidentifier NOT NULL CONSTRAINT "DF_f38c2a61ff630a16afca4dac442" DEFAULT NEWSEQUENTIALID(), "title" nvarchar(255) NOT NULL, "description" nvarchar(255) NOT NULL, "status" nvarchar(255) NOT NULL, "userId" uniqueidentifier, CONSTRAINT "PK_f38c2a61ff630a16afca4dac442" PRIMARY KEY ("id"))`);
