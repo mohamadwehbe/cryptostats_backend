@@ -20,7 +20,7 @@ import { configValidationSchema } from './config.schema';
         port: parseInt(configService.get('DB_PORT'), 10),
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
-        database: configService.get('DB_HOSTDB_DATABASE'),
+        database: configService.get('DB_DATABASE'),
         // entities: [User],
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         // We are using migrations, synchronize should be set to false.
