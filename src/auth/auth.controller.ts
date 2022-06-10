@@ -1,9 +1,12 @@
-import { Body, Controller, Get, Logger, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Logger, Post, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiBearerAuth, ApiConsumes, ApiTags } from '@nestjs/swagger';
+import { diskStorage } from 'multer';
 import { User } from 'src/entities/user.entity';
 import { AuthService } from './auth.service';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { FileUploadDto } from './file-upload.dto';
 import { GetUser } from './get-user.decorator';
 
 @ApiTags('Auth')
@@ -35,4 +38,13 @@ export class AuthController {
     return this.authService.getUserData(user);
   }
 
+  @Post('upload-file')
+  @ApiConsumes('multipart/form-data')
+  @UseInterceptors(FileInterceptor('File'))
+  uploadFile(@UploadedFile() file: any, @Body() body: FileUploadDto) {
+    return {
+      file: file,
+      body: body
+    };
+  }
 }

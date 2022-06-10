@@ -11,7 +11,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiConsumes, ApiTags } from '@nestjs/swagger';
 import { GetUser } from '../auth/get-user.decorator';
 import { Task } from '../entities/task.entity';
 import { User } from '../entities/user.entity';
@@ -26,7 +26,7 @@ import { TasksService } from './tasks.service';
 export class TasksController {
   private logger = new Logger('TasksController');
 
-  constructor(private readonly tasksService: TasksService) {}
+  constructor(private readonly tasksService: TasksService) { }
 
   @Get()
   getTasks(
@@ -73,4 +73,5 @@ export class TasksController {
     const { status } = updateTaskStatusDto;
     return this.tasksService.updateTaskStatus(id, status, user);
   }
+
 }
