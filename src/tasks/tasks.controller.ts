@@ -11,7 +11,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { GetUser } from '../auth/get-user.decorator';
 import { Task } from '../entities/task.entity';
 import { User } from '../entities/user.entity';
@@ -19,7 +19,7 @@ import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDto } from './dto/update-task.dto';
 import { TasksService } from './tasks.service';
-
+@ApiTags('Tasks')
 @Controller('tasks')
 @UseGuards(AuthGuard())
 @ApiBearerAuth()

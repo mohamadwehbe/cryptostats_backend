@@ -10,7 +10,7 @@ export class Expense {
   name: string;
   @Column()
   amount: number;
-  @ManyToOne((_type) => User, (user) => user.tasks, { eager: false })
+  @ManyToOne((_type) => User, (user) => user.expenses, { eager: false })
   @Exclude({ toPlainOnly: true })
   user: User;
 }

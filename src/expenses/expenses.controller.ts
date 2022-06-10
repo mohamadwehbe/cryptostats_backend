@@ -1,13 +1,13 @@
 import { Body, Controller, Delete, Get, Logger, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { GetUser } from '../auth/get-user.decorator';
 import { Expense } from '../entities/expense.entity';
 import { User } from '../entities/user.entity';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { UpdateExpenseDto } from './dto/update-expense.dto';
 import { ExpensesService } from './expenses.service';
-
+@ApiTags('Expenses')
 @Controller('expenses')
 @UseGuards(AuthGuard())
 @ApiBearerAuth()
