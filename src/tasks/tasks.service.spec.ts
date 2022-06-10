@@ -14,6 +14,7 @@ const mockUser = {
   id: 'someId',
   password: 'Mwehbe_1',
   tasks: [],
+  expenses: []
 };
 
 describe('TasksService', () => {
