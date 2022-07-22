@@ -10,6 +10,10 @@ export class Expense {
   name: string;
   @Column()
   amount: number;
+  @Column()
+  typeId: number;
+  @Column()
+  statusId: number;
   @ManyToOne((_type) => User, (user) => user.expenses, { eager: false })
   @Exclude({ toPlainOnly: true })
   user: User;

@@ -5,6 +5,8 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
 import { ExpensesModule } from './expenses/expenses.module';
+import { StatusesModule } from './statuses/statuses.module';
+import { TypesModule } from './types/types.module';
 
 @Module({
   imports: [
@@ -54,6 +56,8 @@ import { ExpensesModule } from './expenses/expenses.module';
     TasksModule,
     AuthModule,
     ExpensesModule,
+    StatusesModule,
+    TypesModule,
   ],
 })
 export class AppModule {}

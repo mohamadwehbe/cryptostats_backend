@@ -21,7 +21,7 @@ export class ExpensesController {
         @GetUser() user: User,
     ): Promise<Expense[]> {
         this.logger.verbose(
-            `User "${user.username}" retrieving all tasks.`,
+            `User "${user.username}" retrieving all expenses.`,
         );
         return this.expensesService.getExpenses(user);
     }
@@ -55,7 +55,7 @@ export class ExpensesController {
         @Body() updateExpenseDto: UpdateExpenseDto,
         @GetUser() user: User,
     ): Promise<Expense> {
-        const { name, amount } = updateExpenseDto;
-        return this.expensesService.updateExpense(id, name, amount, user);
+        const { name, amount, typeId, statusId } = updateExpenseDto;
+        return this.expensesService.updateExpense(id, name, amount, typeId, statusId, user);
     }
 }

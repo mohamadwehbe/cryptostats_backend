@@ -28,10 +28,12 @@ export class ExpenseRepository extends Repository<Expense> {
     }
 
     async createExpense(createExpensedto: CreateExpenseDto, user: User): Promise<Expense> {
-        const { name, amount } = createExpensedto;
+        const { name, amount, typeId, statusId } = createExpensedto;
         const expense = this.create({
             name,
             amount,
+            typeId,
+            statusId,
             user,
         });
         await this.save(expense);

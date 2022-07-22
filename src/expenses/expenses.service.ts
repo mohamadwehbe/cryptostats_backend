@@ -39,11 +39,15 @@ export class ExpensesService {
         id: string,
         name: string,
         amount: number,
+        typeId: number,
+        statusId: number,
         user: User,
     ): Promise<Expense> {
         const expense = await this.getExpenseById(id, user);
         expense.name = name;
         expense.amount = amount;
+        expense.typeId = typeId;
+        expense.statusId = statusId;
         await this.expenseRepository.save(expense);
         return expense;
     }

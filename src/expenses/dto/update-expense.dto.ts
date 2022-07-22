@@ -8,4 +8,8 @@ export class UpdateExpenseDto {
     @ApiProperty({ required: true })
     @IsNumber()
     amount: number;
+    @ApiProperty({ required: true })
+    typeId: number;
+    @ApiProperty({ required: true })
+    statusId: number;
 }
